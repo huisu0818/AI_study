@@ -65,17 +65,17 @@ $$
 $$
 \theta =
 \begin{pmatrix}
-\theta_0\\
-\theta_1\\
-\vdots\\
+\theta_0 \\
+\theta_1 \\
+\vdots \\
 \theta_n
 \end{pmatrix}, ~
 
 x =
 \begin{pmatrix}
-x_0\\
-x_1\\
-\vdots\\
+x_0 \\
+x_1 \\
+\vdots \\
 x_n
 \end{pmatrix}
 $$
