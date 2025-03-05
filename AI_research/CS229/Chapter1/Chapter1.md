@@ -63,7 +63,6 @@ $$
 이때, $\theta$의 경우 $n$ 차원의 Parameter이며 $x$는 $n$차원의 Feature이다.
 
 $$
-\begin{align*}
 \theta =
 \begin{pmatrix}
 \theta_0 \\
@@ -79,7 +78,6 @@ x_1 \\
 \vdots \\
 x_n
 \end{pmatrix}
-\end{align*}
 $$
 
 행렬을 이용하여 위의 Hypothesis를 간소히 표현하면 다음과 같다.
