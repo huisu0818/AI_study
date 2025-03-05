@@ -25,7 +25,7 @@
 먼저 아래와 같이 Size가 주어졌을 때 Price를 맞추는 Task가 있다고 하자.
 
 <div style="text-align: center;">
-    <img src="./Fig1.png" alt="nn" width="500">
+    <img src="./fig1.png" alt="nn" width="500">
 </div>
 
 - Supervised Learning: 데이터의 각 샘플에 대해 올바른 정답이 주어진 경우
@@ -33,7 +33,7 @@
 - Classification: Discrete-valued output을 예측하는 경우
 
 <div style="text-align: center;">
-    <img src="./Fig2.png" alt="nn" width="500">
+    <img src="./fig2.png" alt="nn" width="500">
 </div>
 
 - 이 경우는 Supervised Learning에 해당하며 Regression Task이다.
@@ -41,7 +41,7 @@
 이제 이러한 Task에 대하여 ML 모델이 어떻게 표현되는지에 대해 생각해보자.
 
 <div style="text-align: center;">
-    <img src="./Fig3.png" alt="nn" width="500">
+    <img src="./fig3.png" alt="nn" width="500">
 </div>
 
 
@@ -113,21 +113,21 @@ $$
 먼저 직관적인 이해를 위해 2차원의 $J(\theta)$를 plot하여 얻어진 다음의 그림을 보자.
 
 <div style="text-align: center;">
-    <img src="./Fig4.png" alt="nn" width="500">
+    <img src="./fig4.png" alt="nn" width="500">
 </div><br>
 
 또한 이러한 $J(\theta)$와 $h(x)$의 관계를 다음의 그림을 통해 살펴보자.
 
 <div style="text-align: center;">
-    <img src="./Fig5.png" alt="nn" width="500">
+    <img src="./fig5.png" alt="nn" width="500">
 </div><br>
 
 <div style="text-align: center;">
-    <img src="./Fig6.png" alt="nn" width="500">
+    <img src="./fig6.png" alt="nn" width="500">
 </div><br>
 
 <div style="text-align: center;">
-    <img src="./Fig7.png" alt="nn" width="500">
+    <img src="./fig7.png" alt="nn" width="500">
 </div><br>
 
 즉, $J(\theta)$가 줄어들수록 적합한 $h(x)$로 근접함을 알 수 있다.
@@ -137,7 +137,7 @@ $$
 아래의 그림과 같이 임의의 $\theta$에서 시작해서 $J(\theta)$가 줄어드는 방향으로 $\theta$를 조절하는 것이 Gradient Descent의 핵심이다.
 
 <div style="text-align: center;">
-    <img src="./Fig8.png" alt="nn" width="500">
+    <img src="./fig8.png" alt="nn" width="500">
 </div><br>
 
 Gradient Descent의 Update rule은 다음과 같다.
@@ -453,7 +453,7 @@ $$
 $x \in \mathbb{R}$로부터, $y$를 예측하는 문제를 고려하자.
 
 <div style="text-align: center;">
-    <img src="./Fig9.png" alt="nn" width="500">
+    <img src="./fig9.png" alt="nn" width="500">
 </div><br>
 
 좌측 그림의 경우 $y=\theta_0+\theta_1x$로 fitting한 결과이며, 중앙의 경우 $x^2$ feature를 추가하여 $y=\theta_0+\theta_1x+\theta_2x^2$으로 fitting한 결과이다. 우측의 경우 $y=\sum_{j=0}^{5}\theta_jx^j$로 fitting한 결과이다.
