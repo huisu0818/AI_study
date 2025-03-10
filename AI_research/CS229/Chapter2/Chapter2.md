@@ -29,7 +29,7 @@
 이를 Linear Regression으로 아래의 그림과 같이 접근해보자.
 
 <div style="text-align: center;">
-    <img src="./Fig1.png" alt="nn" width="500">
+    <img src="./fig1.png" alt="nn" width="500">
 </div>
 
 이럴 경우 다음의 두가지 문제가 발생한다.
@@ -48,7 +48,7 @@ $$
 $g(z)$는 다음의 그래프로 표현되며 아래의 특징을 갖는다.
 
 <div style="text-align: center;">
-    <img src="./Fig2.png" alt="nn" width="500">
+    <img src="./fig2.png" alt="nn" width="500">
 </div><br>
 
 - $z\rightarrow\infty: g(z)\rightarrow1$
@@ -64,7 +64,7 @@ $$
 이렇게 정의함에 따라 아래의 사진과 같이 $x$에 대한 예측을 클래스 $y=1$ 혹은 $y=0$에 대한 확률로 이해할 수 있다.
 
 <div style="text-align: center;">
-    <img src="./Fig3.png" alt="nn" width="500">
+    <img src="./fig3.png" alt="nn" width="500">
 </div><br>
 
 이렇게 정의된 $h_\theta(x)$를 해석하여 Dicision Boundary에 대해 이해해보자.
@@ -106,7 +106,7 @@ y=
 $$
 
 <div style="text-align: center;">
-    <img src="./Fig4.png" alt="nn" width="500">
+    <img src="./fig4.png" alt="nn" width="500">
 </div><br>
 
 ## Learning Algorithms
@@ -172,13 +172,13 @@ $$
 $y=1$인 경우는 아래와 같은 형태의 곡선으로 정의된다.
 
 <div style="text-align: center;">
-    <img src="./Fig5.png" alt="nn" width="400">
+    <img src="./fig5.png" alt="nn" width="400">
 </div><br>
 
 $y=0$인 경우는 아래와 같은 형태의 곡선으로 정의된다.
 
 <div style="text-align: center;">
-    <img src="./Fig6.png" alt="nn" width="400">
+    <img src="./fig6.png" alt="nn" width="400">
 </div><br>
 
 추가적으로 $\ell(\theta)$를 최대화하기 위해 gradient ascent 방법을 사용할 수 있다. (최소화를 위한 gradient descent와 달리 gradient ascent에서는 update formula에서 음의 부호 대신 양의 부호를 사용한다.)
@@ -243,7 +243,7 @@ $$
 
 기하학적인 관점에서 반복은 아래의 그림과 같이 수행된다.
 <div style="text-align: center;">
-    <img src="./Fig7.png" alt="nn" width="500">
+    <img src="./fig7.png" alt="nn" width="500">
 </div><br>
 
 이제 $\ell(\theta)$을 최대화하는 문제를, $\ell'(\theta)=0$을 찾는 문제로 이해하여 Newton's Method를 다음의 Update rule로 이해할 수 있다.
