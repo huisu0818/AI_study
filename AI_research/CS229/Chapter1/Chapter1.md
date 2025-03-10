@@ -163,7 +163,7 @@ $$
 
 ### Batch Gradient Descent VS Stochastic Gradient Descent
 
-`실질적으로는 Batch size를 정하는 것과 관련된 개념`
+> `실질적으로는 Batch size를 정하는 것과 관련된 개념`
 
 Batch Gradient Descent의 경우 하나의 epoch에서 전체 sample에 대해 기울기를 파악하여 단 한번의 Update만 수행하는 기법이다.
 
