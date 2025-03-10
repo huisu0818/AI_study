@@ -359,7 +359,6 @@ $$
 $$
 x_1, x_2, \ldots, x_m = X,~ y_1, y_2, \ldots,y_m = \vec{y}\\
 ~\\
-
 L(\theta) = L(\theta; X, \vec{y}) = p(\vec{y}\mid X;\theta)
 $$
 
