@@ -269,7 +269,6 @@ y^2\\
 \vdots\\
 y^m
 \end{bmatrix}\\
-
 &= \begin{bmatrix}
 h_{\theta}(x^1) - y^1\\
 h_{\theta}(x^2) - y^2\\
