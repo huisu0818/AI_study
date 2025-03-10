@@ -93,7 +93,7 @@ $$
 $\frac{1}{2}$는 미분시 연산을 간소화하기 위한 상수이며 학습과정에서 아래와 같이 $J(\theta)$를 최소화 하는 $\theta$를 구함으로써 Hypothesis를 확정한다.
 
 $$
-\underset{\theta}{\text{argmax}}~J(\theta)
+\underset{\theta}{\text{arg max}}~J(\theta)
 $$
 
 ### cf. Terms
@@ -392,11 +392,11 @@ $$
 
 $$
 \begin{align*}
-\hat{\theta}(x_1, \ldots, x_m) &=\underset{\theta}{\text{argmax}}~ L(\theta)\\
-&=\underset{\theta}{\text{argmax}}~ \ell(\theta)\\
-&=\underset{\theta}{\text{argmax}}~ -\frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2\\
-&=\underset{\theta}{\text{argmin}}~ \frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2\\
-&=\underset{\theta}{\text{argmin}}~ J(\theta)
+\hat{\theta}(x_1, \ldots, x_m) &=\underset{\theta}{\text{arg max}}~ L(\theta)\\
+&=\underset{\theta}{\text{arg max}}~ \ell(\theta)\\
+&=\underset{\theta}{\text{arg max}}~ -\frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2\\
+&=\underset{\theta}{\text{arg min}}~ \frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2\\
+&=\underset{\theta}{\text{arg min}}~ J(\theta)
 \end{align*}
 $$
 
