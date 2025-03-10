@@ -357,9 +357,11 @@ $$
 이를 위해 가능도 (Likelihood)를 $\theta$에 대해 다음과 같이 정의한다.
 
 $$
+\begin{align*}
 x_1, x_2, \ldots, x_m = X,~ y_1, y_2, \ldots,y_m = \vec{y}\\
 ~\\
 L(\theta) = L(\theta; X, \vec{y}) = p(\vec{y}\mid X;\theta)
+\end{align*}
 $$
 
 이후 위에서 가정한 **IID**에 따라 수식을 다음과 같이 전개할 수 있다.
