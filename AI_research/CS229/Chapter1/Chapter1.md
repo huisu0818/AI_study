@@ -68,9 +68,7 @@ $$
 \theta_1 \\
 \vdots \\
 \theta_n
-\end{pmatrix}, ~
-
-x = \begin{pmatrix}
+\end{pmatrix}, ~ x = \begin{pmatrix}
 x_0 \\
 x_1 \\
 \vdots \\
@@ -265,22 +263,19 @@ X\theta-\vec{y} &= \begin{bmatrix}
 (x^2)^T\theta\\
 \vdots\\
 (x^m)^T\theta
-\end{bmatrix} -
-
-\begin{bmatrix}
+\end{bmatrix} - \begin{bmatrix}
 y^1\\
 y^2\\
 \vdots\\
 y^m
 \end{bmatrix}\\
 
-&= 
-\begin{bmatrix}
+&= \begin{bmatrix}
 h_{\theta}(x^1) - y^1\\
 h_{\theta}(x^2) - y^2\\
 \vdots\\
 h_{\theta}(x^m)- y^m
-\end{bmatrix}\\
+\end{bmatrix}
 \end{align*}
 $$
 
