@@ -54,7 +54,7 @@ $$
 
 
 $$
-L_{\text{RKT}} = - \frac{1}{\|\mathcal{D}_R\|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
+L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
 $$
 
 
@@ -69,7 +69,7 @@ $$
 \hat{y}_t^i, & \text{if} \ p_t^i \geq \tau \\
 \text{mode}(y^{1i}, y^{2i},\ldots, y^{Mi}), & \text{if} \  p_t^i < \tau
 \end{cases}
-% \tag{1}
+\tag{1}
 $$
 
 $$
