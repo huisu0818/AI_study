@@ -81,9 +81,9 @@ $$
         - 의사 레이블 중 일부를 마스킹하여 가능한 클래스만 남겨두는 기법
         - 여러 MLLM에서 제공된 의사 레이블이 불확실할 때, 가능성이 높은 클래스를 남기고 나머지 클래스는 학습 과정에서 무시
     - Detail:
-        - $\mathbf{z}_{t}^{i} \in \mathbb{R}^{C}$를 타겟 샘플 $x_t^t$에 대한 타겟모델의 예측 확률벡터라 하자.
-        - $p_t^i = \max_{c}\mathbf{z}_{t}^{i}$을 통해 confidence score를 얻을 수 있다.
-        - $\mathbf{m}^i = 1 - \prod_{m=1}^{M}(1 - 1(y_m^i))$에 기반하여 마스킹 생성 $\mathbf{m}^i \in \{0, 1\}^C$
+        - $\mathbf{z}_{t}^{i} \in \mathbb{R}^{C}$ 를 타겟 샘플 $x_t^t$ 에 대한 타겟모델의 예측 확률벡터라 하자.
+        - $p_t^i = \max_{c}\mathbf{z}_{t}^{i}$ 를 통해 confidence score를 얻을 수 있다.
+        - $\mathbf{m}^i = 1 - \prod_{m=1}^{M}(1 - 1(y_m^i))$ 에 기반하여 마스킹 생성 $\mathbf{m}^i\in\{0, 1\}^C$
         - 이 마스킹은 MLLM들이 예측한 클래스에 해당하는 원-핫 벡터를 서로 곱하여 여러 MLLM이 일치하는 클래스는 남기고 나머지는 마스킹한다.
     - 모델의 신뢰도가 높은 때는 모델의 원래의 예측값 중 가장 높은 예측을 사용하고,
     - 모델의 신뢰도가 낮은 경우, 마스킹 벡터를 사용하여 가능성이 적은 클래스를 제외한 클래스 중 가장 높은 것을 선택한다.
@@ -91,12 +91,10 @@ $$
         - $\mathbf{H}$는 교차 엔트로피 손실을 의미한다.
 
 $$
-\tilde{y}^i =
-\begin{cases}
+\tilde{y}^i = \begin{cases}
 \argmax(z_t^i), & \text{if} \ p_t^i \geq \tau \\
 \argmax(z_t^i \odot m_i), & \text{if} \  p_t^i < \tau
-\end{cases}
-\tag{1}
+\end{cases} \tag{1}
 $$
 
 $$
