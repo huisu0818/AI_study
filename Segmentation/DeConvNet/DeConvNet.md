@@ -1,0 +1,64 @@
+# DeConvNet (Deconvolution Network)
+Learning Deconvolution Network for Semantic Segmentation [ ICCV 2015  ·  Hyeonwoo Noh, Seunghoon Hong, Bohyung Han ]
+
+https://paperswithcode.com/paper/learning-deconvolution-network-for-semantic
+
+https://eda-ai-lab.tistory.com/519
+
+https://deep-learning-study.tistory.com/565
+
+## Abstract
+
+<div style="text-align: center;">
+    <img src="./DeConvNet1.png" alt="nn" width="500">
+</div>
+
+- FCN의 한계를 극복하기 위해 고안 됨
+    - FCN의 경우 Fixed size receptive field 를 갖기 때문에 heatmap을 생성한 마지막 conv layer의 receptive field 보다 큰 객체가 분해될 수 있다.
+    - FCN의 upsampling 방법은 spatial information의 손실이 크기 때문에 작은 객체는 spatial 정보의 손실과 데이터 손실에 의해 검출이 어려울 수 있다.
+    - FCN의 skip connection으로는 극복하기 어려운 문제이다.
+- Deconvolution의 방법을 제안
+    - Unpooling: convolution의 pooling index를 공유한다.
+    - Deconvolution은 convolution 역 연산을 의미하며 기존 kernel과 output을 알고 있을 때, 원본 이미지로 복원하는 연산이다. 따라서 convolution layer와 kernel을 공유해야 한다. 반면 transposed convolution은 복원 kernel을 학습을 통해 수렴시켜간다.
+
+## Architecture
+
+<div style="text-align: center;">
+    <img src="./DeConvNet2.png" alt="nn" width="500">
+</div>
+
+- Convolution Network: VGG16에서 마지막 classification layer를 제외하고 사용
+- Fully connected layer: class-specific projection을 수행 (각 픽셀이 클래스들의 벡터로 구성되어 가장 값이 높은 것이 해당 클래스로 구분된다)
+- Deconvolution Network: ConvNet에서 생성된 feature map을 unpooling & deconvolution하여 원본 size와 동일한 map을 생성
+
+- DeConvNet은 단일 객체 이미지를 입력으로 받는다. 따라서 Fully connected layer를 이용해서 classification을 수행하고, 공간적으로 다시 재구성하는 것이 가능하다.
+
+<div style="text-align: center;">
+    <img src="./DeConvNet3.png" alt="nn" width="500">
+</div>
+
+
+- Unpooling: pooling 할 때의 위치를 기억하여 unpooling 하여 spatial information을 보존
+- Deconvolution: Unpooling에 의해 생성된 sparse한 activation map을 조밀하게 채워주는 역할을 한다
+- Deconvolution과 transposed convolution은 다른 개념임에 주의
+
+## Detail
+
+https://hye-z.tistory.com/9
+
+## Performance
+
+<div style="text-align: center;">
+    <img src="./DeConvNet4.png" alt="nn" width="500">
+</div>
+
+- low layer의 deconv는 전반적인 특징을 얻는다. (location, shape, region)
+- high layer의 deconv는 복잡한 패턴을 얻는다.
+- FCN은 전반적인 모양을 잘 학습하는 방면, DeConvNet은 세부적인 패턴을 잘 학습한다. 따라서 두 모델을 앙상블하고, CRF까지 실행하면 좋은 성능을 보인다.
+
+
+## Summary
+
+- Encoder-Decoder 구조를 도입 (대칭적구조)
+- unpooling, deconvolution을 통해 더 세밀한 segmentation을 구현
+- SegNet은 Fully connected layer를 없애서 parameter 수를 줄이고, deconvolution을 하지 않아 학습 속도가 빠르다 (애초에 목적 자체가 Real-time segmentation)
