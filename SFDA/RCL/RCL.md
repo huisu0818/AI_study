@@ -1,3 +1,7 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 # Empowering Source-Free Domain Adaptation with MLLM-driven Curriculum Learning (RCL)
 
 [ May 2024, Dongjie Chen, Kartik Patwari, Zhengfeng Lai, Sen-ching Cheung, Chen-Nee Chuah ]
