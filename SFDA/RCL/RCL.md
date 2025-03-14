@@ -34,7 +34,6 @@
     - 신뢰도는 각 샘플에 대한 pseudo-label을 일치 비율로 계산된다.
 
 $$
-
 R(x_{t}^{i}) = \frac{1}{M(M-1)} \sum_{m=1}^{M} \sum_{n=1,n \neq m}^{M} \mathbb{1}(\hat{y}^{mi} = \hat{y}^{ni}) 
 $$
 
