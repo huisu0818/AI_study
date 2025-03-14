@@ -54,7 +54,7 @@ $$
 
 
 $$
-L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
+L_{\text{RKT}} = - \frac{1}{\|\mathcal{D}_R\|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
 $$
 
 
