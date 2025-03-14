@@ -71,8 +71,8 @@ $$
 $$
 I[a] = 
 \begin{cases}
-1 \ \ \ (\text{a is true}) \\
-0 \ \ \ (otherwise)
+1 & ~(\text{if}~\text{a is true}) \\
+0 & ~(\text{if}~\text{otherwise})
 \end{cases}
 $$
 ### 3. Proxy A-Distance (PAD)
