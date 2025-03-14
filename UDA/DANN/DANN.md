@@ -71,10 +71,11 @@ $$
 $$
 I[a] = 
 \begin{cases}
-1 & ~(\text{if}~\text{a is true}) \\
-0 & ~(\text{if}~\text{otherwise})
+1 & ~\text{if}~\text{a is true} \\
+0 & ~\text{otherwise}
 \end{cases}
 $$
+
 ### 3. Proxy A-Distance (PAD)
 - $\mathcal{H}$-distance는 직접 계산이 어려운 경우가 많다. 따라서 이를 근사하여 구할 수 있다. 
 - source는 0, target은 1로 레이블된 데이터셋 $U$를 구성한다.
