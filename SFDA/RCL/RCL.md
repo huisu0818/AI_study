@@ -60,9 +60,10 @@ R(x_{t}^{i}) = \frac{1}{M(M-1)} \sum_{m=1}^{M} \sum_{n=1,n \neq m}^{M} \mathbb{1
     - 교차 엔트로피 손실을 사용하여 모델을 훈련한다.
     - 아래 수식에서 $|\mathcal{D}_R|$ 은 DR의 샘플 개수를 의미한다.
 
-$$
+
+```math
 L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
-$$
+```
 
 
 - Self-correcting and MLLM-guided Knowledge Expansion (SMKE): 
