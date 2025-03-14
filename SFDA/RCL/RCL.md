@@ -33,9 +33,9 @@
     - 모든 MLLM이 일치하는 신뢰도가 높고, 일치하지 않을수록 신뢰도가 낮다.
     - 신뢰도는 각 샘플에 대한 pseudo-label을 일치 비율로 계산된다.
 
-```math
+$$
 R(x_{t}^{i}) = \frac{1}{M(M-1)} \sum_{m=1}^{M} \sum_{n=1,n \neq m}^{M} \mathbb{1}(\hat{y}^{mi} = \hat{y}^{ni}) 
-```
+$$
 
 - 데이터셋 분할: 위에서 측정한 신뢰도에 따라 타겟 도메인의 데이터를 세 그룹으로 나눈다.
     - DR: 모든 MLLM이 일치하는 신뢰도가 가장 높은 데이터
@@ -53,9 +53,9 @@ R(x_{t}^{i}) = \frac{1}{M(M-1)} \sum_{m=1}^{M} \sum_{n=1,n \neq m}^{M} \mathbb{1
     - 아래 수식에서 $|\mathcal{D}_R|$ 은 DR의 샘플 개수를 의미한다.
 
 
-```math
+$$
 L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
-```
+$$
 
 
 - Self-correcting and MLLM-guided Knowledge Expansion (SMKE): 
@@ -63,14 +63,14 @@ L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}
     - 타겟 모델의 confidence가 높으면 모델 자체의 예측을 사용하고, confidence가 낮으면 MLLM의 의사 레이블을 사용한다.
     - 임계값 $\tau$를 사용하여 타겟 모델의 신뢰도에 따라 학습 방식을 결정한다.
 
-```math
+$$
 \tilde{y}^i =
 \begin{cases}
 \hat{y}_t^i, & \text{if} \ p_t^i \geq \tau \\
 \text{mode}(y^{1i}, y^{2i},\ldots, y^{Mi}), & \text{if} \  p_t^i < \tau
 \end{cases}
-\tag{1}
-```
+% \tag{1}
+$$
 
 $$
 L_{\text{SMKE}} = -\frac{1}{|\mathcal{D}_R \cup \mathcal{D}_{LR}|} \sum_{x_t^i \in \{\mathcal{D}_R \cup \mathcal{D}_{LR}\}} \tilde{y}^i \cdot \log f_{\theta_{t}}(x_t^i) \tag{2}
