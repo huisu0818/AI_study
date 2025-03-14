@@ -1,11 +1,3 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Markdown with MathJax</title>
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-</head>
-
 # Empowering Source-Free Domain Adaptation with MLLM-driven Curriculum Learning (RCL)
 
 [ May 2024, Dongjie Chen, Kartik Patwari, Zhengfeng Lai, Sen-ching Cheung, Chen-Nee Chuah ]
@@ -71,14 +63,14 @@ L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}
     - 타겟 모델의 confidence가 높으면 모델 자체의 예측을 사용하고, confidence가 낮으면 MLLM의 의사 레이블을 사용한다.
     - 임계값 $\tau$를 사용하여 타겟 모델의 신뢰도에 따라 학습 방식을 결정한다.
 
-$$
+```math
 \tilde{y}^i =
 \begin{cases}
 \hat{y}_t^i, & \text{if} \ p_t^i \geq \tau \\
 \text{mode}(y^{1i}, y^{2i},\ldots, y^{Mi}), & \text{if} \  p_t^i < \tau
 \end{cases}
 \tag{1}
-$$
+```
 
 $$
 L_{\text{SMKE}} = -\frac{1}{|\mathcal{D}_R \cup \mathcal{D}_{LR}|} \sum_{x_t^i \in \{\mathcal{D}_R \cup \mathcal{D}_{LR}\}} \tilde{y}^i \cdot \log f_{\theta_{t}}(x_t^i) \tag{2}
