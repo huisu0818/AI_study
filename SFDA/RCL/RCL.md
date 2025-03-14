@@ -50,7 +50,7 @@ $$
 - Reliable Knowledge Transfer (RKT): 
     - 여러 MLLM에서 생성된 레이블 중 신뢰성이 높은 데이터(DR)를 사용해 모델을 학습하는 단계
     - 교차 엔트로피 손실을 사용하여 모델을 훈련한다.
-    - 아래 수식에서 $|\mathcal{D}_R|$은 DR의 샘플 개수를 의미한다.
+    - 아래 수식에서 $|\mathcal{D}_R|$ 은 DR의 샘플 개수를 의미한다.
 
 $$
 L_{\text{RKT}} = -\frac{1}{|\mathcal{D}_R|} \sum_{(x_r^i, y_r^i) \in \mathcal{D}_R} y_r^i \cdot \log f_{\theta_{t}}(x_r^i)
@@ -83,7 +83,7 @@ $$
     - Detail:
         - $\mathbf{z}_{t}^{i} \in \mathbb{R}^{C}$ 를 타겟 샘플 $x_t^t$ 에 대한 타겟모델의 예측 확률벡터라 하자.
         - $p_t^i = \max_{c}\mathbf{z}_{t}^{i}$ 를 통해 confidence score를 얻을 수 있다.
-        - $\mathbf{m}^i = 1 - \prod_{m=1}^{M}(1 - 1(y_m^i))$ 에 기반하여 마스킹 생성 $\mathbf{m}^i\in\{0, 1\}^C$
+        - $\mathbf{m}^i = 1 - \prod_{m=1}^{M}(1 - 1(y_m^i))$ 에 기반하여 마스킹 생성 $\mathbf{m}^i\in\lbrace0, 1\rbrace^C$
         - 이 마스킹은 MLLM들이 예측한 클래스에 해당하는 원-핫 벡터를 서로 곱하여 여러 MLLM이 일치하는 클래스는 남기고 나머지는 마스킹한다.
     - 모델의 신뢰도가 높은 때는 모델의 원래의 예측값 중 가장 높은 예측을 사용하고,
     - 모델의 신뢰도가 낮은 경우, 마스킹 벡터를 사용하여 가능성이 적은 클래스를 제외한 클래스 중 가장 높은 것을 선택한다.
@@ -98,7 +98,7 @@ $$
 $$
 
 $$
-L_{\text{sup}} = - \frac{1}{|D_R \cup D_{LR} \cup D_{UR}|} \sum_{x_t^i \in \{D_R \cup D_{LR} \cup D_{UR}\}} \tilde{y}^i \cdot \log f_{\theta_t}(x_t^i) \tag{2}
+L_{\text{sup}} = - \frac{1}{|D_R \cup D_{LR} \cup D_{UR}|} \sum_{x_t^i \in \lbrace D_R \cup D_{LR} \cup D_{UR} \rbrace} \tilde{y}^i \cdot \log f_{\theta_t}(x_t^i) \tag{2}
 $$
 
 $$
