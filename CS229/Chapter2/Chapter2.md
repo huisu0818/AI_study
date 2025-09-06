@@ -58,7 +58,7 @@ $g(z)$는 다음의 그래프로 표현되며 아래의 특징을 갖는다.
 이제 Sigmoid Function $g(z)$로 다음과 같이 hypothesis $h_\theta(x)$를 정의한다.
 
 $$
-h_\theta(x) = g(\theta^Tx)=\frac{1}{1+e^{-\theta^Tx}}
+h_\theta(x) = g(\theta^\top x)=\frac{1}{1+e^{-\theta^\top x}}
 $$
 
 이렇게 정의함에 따라 아래의 사진과 같이 $x$에 대한 예측을 클래스 $y=1$ 혹은 $y=0$에 대한 확률로 이해할 수 있다.
@@ -84,8 +84,8 @@ $g(z)$ 함수를 고려할 때, Dicision Boundary 다음과 같이 정리될 수
 $$
 y=
 \begin{cases}
-1 & \text{if}~\theta^Tx \ge 0\\
-0 & \text{if}~\theta^Tx < 0
+1 & \text{if}~\theta^\top x \ge 0\\
+0 & \text{if}~\theta^\top x < 0
 \end{cases}
 $$
 
@@ -192,9 +192,9 @@ $$
 $$
 \begin{align*}
 \frac{\partial}{\partial\theta_j}\ell(\theta) 
-&=\left(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)} \right)\frac{\partial}{\partial\theta_j}g(\theta^Tx)\\
-&=\left(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)} \right)g(\theta^Tx)(1-g(\theta^Tx))\frac{\partial}{\partial\theta_j}\theta^Tx\\
-&=\left(y(1-g(\theta^Tx))-(1-y)g(\theta^Tx) \right)x_j\\
+&=\left(y\frac{1}{g(\theta^\top x)}-(1-y)\frac{1}{1-g(\theta^\top x)} \right)\frac{\partial}{\partial\theta_j}g(\theta^\top x)\\
+&=\left(y\frac{1}{g(\theta^\top x)}-(1-y)\frac{1}{1-g(\theta^\top x)} \right)g(\theta^\top x)(1-g(\theta^\top x))\frac{\partial}{\partial\theta_j}\theta^\top x\\
+&=\left(y(1-g(\theta^\top x))-(1-y)g(\theta^\top x) \right)x_j\\
 &=(y-h_\theta(x))x_j
 \end{align*}
 $$
@@ -205,7 +205,7 @@ $$
 \theta_j:=\theta_j + \alpha\left(y^i-h_\theta(x^i)\right)x_j^i
 $$
 
-Linear Regression에서의 LMS(Least Mean Squares) 업데이트 규칙과 비교해보면, 로지스틱 회귀의 업데이트 규칙이 동일하게 보인다. 하지만, 이는 같은 알고리즘이 아니다. 왜냐하면, $h_\theta(x^i)$  가 이제는  $\theta^T x^i$  의 비선형 함수로 정의되기 때문이다.
+Linear Regression에서의 LMS(Least Mean Squares) 업데이트 규칙과 비교해보면, 로지스틱 회귀의 업데이트 규칙이 동일하게 보인다. 하지만, 이는 같은 알고리즘이 아니다. 왜냐하면, $h_\theta(x^i)$  가 이제는  $\theta^\top  x^i$  의 비선형 함수로 정의되기 때문이다.
 그럼에도 불구하고, 서로 다른 학습 문제와 알고리즘에서 동일한 업데이트 규칙이 도출된다는 것은 흥미로운 일이다. 이것이 단순한 우연일까, 아니면 더 깊은 이유가 있을까? 이 질문에 대한 답은 일반화 선형 모델(GLM, Generalized Linear Models) 을 다룰 때 정리할 것이다.
 
 ### cf. Perceprton Algorithm

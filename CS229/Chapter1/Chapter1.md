@@ -79,7 +79,7 @@ $$
 행렬을 이용하여 위의 Hypothesis를 간소히 표현하면 다음과 같다.
 
 $$
-h(x) = \theta^Tx
+h(x) = \theta^\top x
 $$
 
 ### Learning Algorithm
@@ -236,10 +236,10 @@ $$
 
 $$
 X = \begin{bmatrix}
-(x^1)^T\\
-(x^2)^T\\
+(x^1)^\top\\
+(x^2)^\top\\
 \vdots\\
-(x^m)^T
+(x^m)^\top
 \end{bmatrix}
 $$
 
@@ -254,15 +254,15 @@ y^m
 \end{bmatrix}
 $$
 
-이제 $h_{\theta}(x^i)=(x^i)^T\theta$에서 다음을 얻을 수 있다.
+이제 $h_{\theta}(x^i)=(x^i)^\top \theta$에서 다음을 얻을 수 있다.
 
 $$
 \begin{align*}
 X\theta-\vec{y} &= \begin{bmatrix}
-(x^1)^T\theta\\
-(x^2)^T\theta\\
+(x^1)^\top \theta\\
+(x^2)^\top \theta\\
 \vdots\\
-(x^m)^T\theta
+(x^m)^\top \theta
 \end{bmatrix} - \begin{bmatrix}
 y^1\\
 y^2\\
@@ -278,41 +278,41 @@ h_{\theta}(x^m)- y^m
 \end{align*}
 $$
 
-이때, $z^Tz = \sum_{i}z_i^2$에 따라 다음을 얻을 수 있다.
+이때, $z^\top z = \sum_{i}z_i^2$에 따라 다음을 얻을 수 있다.
 
 $$
 \begin{align*}
 J(\theta) &=\frac{1}{2}\sum_{i=1}^m(h_{\theta}(x^i)-y^i)^2\\
-&= \frac{1}{2}(X\theta-\vec{y})^T(X\theta-\vec{y})
+&= \frac{1}{2}(X\theta-\vec{y})^\top (X\theta-\vec{y})
 \end{align*}
 $$
 
 마지막으로 다음의 사실과 함께 주어진 식을 $\theta$에 대해 미분하자.
-- 3번째 줄: $a^Tb=b^Ta$
-- 5번째 줄 (1): $\nabla_xb^Tx=b$
-- 5번째 줄 (2): 대칭행렬 $A$에 대해 $\nabla x^TAx=2Ax$
+- 3번째 줄: $a^\top b=b^\top a$
+- 5번째 줄 (1): $\nabla_xb^\top x=b$
+- 5번째 줄 (2): 대칭행렬 $A$에 대해 $\nabla x^\top Ax=2Ax$
 
 $$
 \begin{align*}
-\nabla_{\theta}J(\theta) &= \nabla_{\theta}\frac{1}{2}(X\theta-\vec{y})^T(X\theta-\vec{y})\\
-&=\frac{1}{2}\nabla_{\theta}\left((X\theta)^TX\theta-(X\theta)^T\vec{y}-\vec{y}^T(X\theta)+\vec{y}^T\vec{y} \right) \\
-&=\frac{1}{2}\nabla_{\theta}\left(\theta^T(X^TX)\theta-\vec{y}^T(X\theta)-\vec{y}^T(X\theta) \right)\\
-&=\frac{1}{2}\nabla_{\theta}\left(\theta^T(X^TX)\theta-2(X^T\vec{y})^T\theta \right)\\
-&=\left(2X^TX\theta-2X^T\vec{y} \right)\\
-&=X^TX\theta-X^T\vec{y}
+\nabla_{\theta}J(\theta) &= \nabla_{\theta}\frac{1}{2}(X\theta-\vec{y})^\top (X\theta-\vec{y})\\
+&=\frac{1}{2}\nabla_{\theta}\left((X\theta)^\top X\theta-(X\theta)^\top \vec{y}-\vec{y}^\top (X\theta)+\vec{y}^\top \vec{y} \right) \\
+&=\frac{1}{2}\nabla_{\theta}\left(\theta^\top (X^\top X)\theta-\vec{y}^\top (X\theta)-\vec{y}^\top (X\theta) \right)\\
+&=\frac{1}{2}\nabla_{\theta}\left(\theta^\top (X^\top X)\theta-2(X^\top \vec{y})^\top \theta \right)\\
+&=\left(2X^\top X\theta-2X^\top \vec{y} \right)\\
+&=X^\top X\theta-X^\top \vec{y}
 \end{align*}
 $$
 
 $J(\theta)$를 최소화하기 위해 미분한 식이 $0$이 되는 $\theta$를 찾기 위해 다음의 Normal Equation을 얻는다.
 
 $$
-X^TX\theta = X^T\vec{y}
+X^\top X\theta = X^\top \vec{y}
 $$
 
 이제 위의 Normal Equation을 정리하여 $J(\theta)$를 최소화하는 $\theta$를 구할 수 있다.
 
 $$
-\theta = (X^TX)^{-1}X^T\vec{y}
+\theta = (X^\top X)^{-1}X^\top \vec{y}
 $$
 
 ## Probabilistic Interpretation
@@ -326,7 +326,7 @@ $$
 먼저 Linear Regression에서는 Target variables $y$ 와 inputs $x$가 다음의 수식을 따르는 관계를 가짐을 가정한다.
 
 $$
-y^i = \theta^{T}x^i + \epsilon^i
+y^i = \theta^{\top}x^i + \epsilon^i
 $$
 
 $\epsilon^i$는 오차항 (error term)으로 모델링되지 않은 효과나 노이즈를 capture한다. 이때, 이러한 $\epsilon^i$는 독립적이고, 동일한 정규분포 (independently and identically distributed, **IID**)를 따르고, 평균이 $0$이고, 분산이 $\sigma^2$인 Gaussian Distribution을 따른다고 가정한다.
@@ -340,7 +340,7 @@ $$
 두 가정을 종합하여 $\theta$가 결정될 때마다 $x$에 대한 $y$의 확률분포는 조건부 확률분포를 따르며 이를 나타내는 $p(y^i\mid x^i;\theta)$는 다음과 같이 정의된다.
 
 $$
-p(y^i\mid x^i;\theta) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{T}x^i)^2}{2\sigma^2}\right)
+p(y^i\mid x^i;\theta) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{\top}x^i)^2}{2\sigma^2}\right)
 $$
 
 ### cf. $p(y\mid x, \theta)$ vs $p(y\mid x;\theta)$
@@ -371,7 +371,7 @@ $$
 L(\theta; X, \vec{y}) &= p(\vec{y}\mid X;\theta)\\
 &=p(y^1\mid x^1;\theta)\times\cdots\times p(y^m\mid x^m;\theta)\\
 &=\prod_{i=1}^mp(y^i\mid x^i;\theta)\\
-&=\prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{T}x^i)^2}{2\sigma^2}\right)
+&=\prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{\top}x^i)^2}{2\sigma^2}\right)
 \end{align*}
 $$
 
@@ -382,9 +382,9 @@ $$
 $$
 \begin{align*}
 \ell(\theta) &= \log L(\theta)\\
-&= \log \prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{T}x^i)^2}{2\sigma^2}\right) \\
-&=\sum_{i=1}^m\log\prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{T}x^i)^2}{2\sigma^2}\right)\\
-&= m\log\frac{1}{\sqrt{2\pi}\sigma} - \frac{1}{\sigma^2}\cdot\frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2
+&= \log \prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{\top}x^i)^2}{2\sigma^2}\right) \\
+&=\sum_{i=1}^m\log\prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^i-\theta^{\top}x^i)^2}{2\sigma^2}\right)\\
+&= m\log\frac{1}{\sqrt{2\pi}\sigma} - \frac{1}{\sigma^2}\cdot\frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{\top}x^i\right)^2
 \end{align*}
 $$
 
@@ -394,8 +394,8 @@ $$
 \begin{align*}
 \hat{\theta}(x_1, \ldots, x_m) &=\underset{\theta}{\text{arg max}}~ L(\theta)\\
 &=\underset{\theta}{\text{arg max}}~ \ell(\theta)\\
-&=\underset{\theta}{\text{arg max}}~ -\frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2\\
-&=\underset{\theta}{\text{arg min}}~ \frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{T}x^i\right)^2\\
+&=\underset{\theta}{\text{arg max}}~ -\frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{\top}x^i\right)^2\\
+&=\underset{\theta}{\text{arg min}}~ \frac{1}{2}\sum_{i=1}^{m}\left(y^i-\theta^{\top}x^i\right)^2\\
 &=\underset{\theta}{\text{arg min}}~ J(\theta)
 \end{align*}
 $$
@@ -467,7 +467,7 @@ LWR은 특정 $x$와 가까운 sample에 집중하여 Linear Regression을 수�
 즉, $\theta$에 대해 cost function $j(\theta)$를 다음과 같이 정의한다.
 
 $$
-J(\theta)=\frac{1}{2}\sum_{i=1}^{m}w^i\left(y^i-\theta^Tx^i\right)^2
+J(\theta)=\frac{1}{2}\sum_{i=1}^{m}w^i\left(y^i-\theta^\top x^i\right)^2
 $$
 
 이때, $w^i$는 다음의 함수로 정의되며, 가우시안 분포의 유사한 형태의 함수이다.

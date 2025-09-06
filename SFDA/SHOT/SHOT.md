@@ -24,7 +24,7 @@ Do We Really Need to Access the Source Data? Source Hypothesis Transfer for Unsu
     - $\delta_k(f_s(x_s))$: 소스 모델이 샘플 $x_s$에 대해 클래스 $k$로 예측할 확률
 
 $$
-L_{\text{src}}(f_s; \mathcal{X}_s, \mathcal{Y}_s) = - \mathbb{E}{(x_s, y_s) \in \mathcal{X}_s \times \mathcal{Y}_s} \sum_{k=1}^{K} q_k \log \delta_k(f_s(x_s))
+L_{\text{src}}(f_s; \mathcal{X}_s, \mathcal{Y}_s) = - \mathbb{E}_{(x_s, y_s) \in \mathcal{X}_s \times \mathcal{Y}_s} \sum_{k=1}^{K} q_k \log \delta_k(f_s(x_s))
 $$
 
 ### 2. Source Hypothesis Transfer with Information Maximization (SHOT-IM)
@@ -77,7 +77,7 @@ $$
 - 의사 레이블을 기반으로 추가적인 학습을 진행한다.
 
 $$
-L_{\text{pseudo}}(g_t; \mathcal{X}_t, \hat{\mathcal{Y}}_t) = - \mathbb{E}{(x_t, \hat{y}_t) \in \mathcal{X}_t \times \hat{\mathcal{Y}}_t} \sum_{k=1}^{K} \mathbb{1}_{[k=\hat{y}_t]} \log \delta_k(f_s(x_s))
+L_{\text{pseudo}}(g_t; \mathcal{X}_t, \hat{\mathcal{Y}}_t) = - \mathbb{E}_{(x_t, \hat{y}_t) \in \mathcal{X}_t \times \hat{\mathcal{Y}}_t} \sum_{k=1}^{K} \mathbb{1}_{[k=\hat{y}_t]} \log \delta_k(f_s(x_s))
 $$
 
 ### 4. Total Loss Function

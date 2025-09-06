@@ -24,7 +24,7 @@
 
 
 $$
-p(y; \eta) = b(y) \exp(\eta^T T(y) - a(\eta))
+p(y; \eta) = b(y) \exp(\eta^\top T(y) - a(\eta))
 $$
 
 $$
